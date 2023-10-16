@@ -1,20 +1,33 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.id = myLibrary.length + 1
+    }
+    changeReadStatus() {
+        this.read = !this.read;
+    }
+}
+
+/*function Book(title, author, pages, read) {
     let readText = true;
     this.title = title
-    this. author = author
+    this.author = author
     this.pages = pages
     this.read = read
     this.id = myLibrary.length + 1
 }
 
-Book.prototype.toggleRead = function() {
+Book.prototype.changeReadStatus = function() {
     this.read = !this.read;
-}
+}*/
 
 function toggleRead(index) {
-    myLibrary[index].toggleRead();
+    myLibrary[index].changeReadStatus();
     renderBook();
 }
 
@@ -82,6 +95,5 @@ function removeBook (id) {
     renderBook();
 }
 
-//submitNewBookForm();
+
 renderBook();
-//removeBookDivs();
